@@ -1,18 +1,20 @@
 import React from 'react';
 import { StyledInput } from './style';
 
-function Input({ label, type, onChange, value, name }) {
+function Input({ label, type, onChange, value, name, error, onBlur }) {
   return (
-    <div>
+    <StyledInput>
       <label htmlFor={name}>{label}</label>
-      <StyledInput 
+      <input
         id={name}
         name={name}
-        type={type} 
-        onChange={onChange} 
-        value={value} 
+        type={type}
+        onChange={onChange}
+        value={value}
+        onBlur={onBlur}
       />
-    </div>
+      {error && <p>{error}</p>}
+    </StyledInput>
   );
 }
 
