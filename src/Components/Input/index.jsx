@@ -9,8 +9,8 @@ function Input({ label, type, onChange, value, name, error, onBlur }) {
         id={name}
         name={name}
         type={type}
-        onChange={onChange}
         value={value}
+        onChange={onChange}
         onBlur={onBlur}
       />
       {error && <p>{error}</p>}

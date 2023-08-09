@@ -3,22 +3,24 @@ import { Link, json } from 'react-router-dom';
 import Button from '../Components/Button';
 import Input from '../Components/Input';
 import useForm from '../Utils/useForm';
+import { TOKEN_POST } from '../Api/api';
 
 function LoginForm() {
-  const username = useForm('email');
+  const username = useForm();
   const password = useForm();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    fetch('https://dogsapi.origamid/dev/json/jwt-auth/v1/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(),
-    })
-      .then((response) => console.log(response.json()))
-      .then((json) => console.log(json));
+
+    if (username.validate() && password.validate()) {
+      const { url, options } = TOKEN_POST({
+        username: username.value,
+        password: password.value,
+      });
+      const response = await fetch(url,options);
+      const json = await response.json()
+      window.localStorage.setItem('token', json.token)
+    }
   }
   return (
     <>
@@ -26,18 +28,8 @@ function LoginForm() {
         <h1>Login</h1>
 
         <form action="" onSubmit={handleSubmit}>
-          <Input
-            name="user"
-            label="Usuário"
-            type="email"
-            {...username}
-          />
-          <Input
-            name="password"
-            label="Senha"
-            type="password"
-            {...password}
-          />
+          <Input name="user" label="Usuário" type="text" {...username} />
+          <Input name="password" label="Senha" type="password" {...password} />
           <Button text="Entrar" />
         </form>
 
