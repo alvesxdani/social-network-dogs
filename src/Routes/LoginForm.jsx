@@ -3,11 +3,18 @@ import { Link, json } from 'react-router-dom';
 import Button from '../Components/Button';
 import Input from '../Components/Input';
 import useForm from '../Utils/useForm';
-import { TOKEN_POST } from '../Api/api';
+import { TOKEN_POST, USER_GET } from '../Api/api';
 
 function LoginForm() {
   const username = useForm();
   const password = useForm();
+
+  async function getUser(token) {
+    const {url, options} = USER_GET(token)
+    const response = await fetch(url, options)
+    const json = await response.json()
+    console.log(json)
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -17,9 +24,14 @@ function LoginForm() {
         username: username.value,
         password: password.value,
       });
-      const response = await fetch(url,options);
-      const json = await response.json()
+
+      const response = await fetch(url, options);
+      const json = await response.json();
+      console.log(json)
       window.localStorage.setItem('token', json.token)
+      getUser(json.token)
+
+      
     }
   }
   return (
