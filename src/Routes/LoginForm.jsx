@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useDeferredValue, useEffect, useState } from 'react';
 import { Link, json } from 'react-router-dom';
 import Button from '../Components/Button';
 import Input from '../Components/Input';
@@ -8,6 +8,11 @@ import { TOKEN_POST, USER_GET } from '../Api/api';
 function LoginForm() {
   const username = useForm();
   const password = useForm();
+
+  useEffect(() => {
+    const token = window.localStorage.getItem('token')
+    if(token) getUser()
+  })
 
   async function getUser(token) {
     const {url, options} = USER_GET(token)
@@ -30,8 +35,6 @@ function LoginForm() {
       console.log(json)
       window.localStorage.setItem('token', json.token)
       getUser(json.token)
-
-      
     }
   }
   return (
