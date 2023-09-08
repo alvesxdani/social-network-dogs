@@ -1,54 +1,48 @@
-import React, { useDeferredValue, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, json } from 'react-router-dom';
 import Button from '../Components/Button';
 import Input from '../Components/Input';
 import useForm from '../Utils/useForm';
-import { TOKEN_POST, USER_GET } from '../Api/api';
+import UserContext from '../Context/UserContext';
+import Title from '../Components/Title';
+import ErrorMsg from '../Components/ErrorMsg';
 
 function LoginForm() {
   const username = useForm();
   const password = useForm();
 
-  useEffect(() => {
-    const token = window.localStorage.getItem('token')
-    if(token) getUser()
-  })
-
-  async function getUser(token) {
-    const {url, options} = USER_GET(token)
-    const response = await fetch(url, options)
-    const json = await response.json()
-    console.log(json)
-  }
+  const { userLogin, error, loading } = useContext(UserContext);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      const { url, options } = TOKEN_POST({
-        username: username.value,
-        password: password.value,
-      });
-
-      const response = await fetch(url, options);
-      const json = await response.json();
-      console.log(json)
-      window.localStorage.setItem('token', json.token)
-      getUser(json.token)
+      userLogin(username.value, password.value);
     }
   }
   return (
     <>
-      <section>
-        <h1>Login</h1>
+      <section className='animeLeft'>
+        <Title type='h1'>Login</Title>
 
-        <form action="" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <Input name="user" label="Usuário" type="text" {...username} />
           <Input name="password" label="Senha" type="password" {...password} />
-          <Button text="Entrar" />
+
+          {loading ? <Button content="Carregando" disabled /> : <Button content="Entrar" />}
+
+          <ErrorMsg error={error} />
         </form>
 
-        <Link to="/login/entrar">Cadastro</Link>
+        <Link to='/login/lost' className='lost'>Esqueceu a senha?</Link>
+      
+        <div className='cadastro'>
+          <Title type='h2'>Cadastre-se</Title>
+          <p>Ainda não possui conta? Cadastre-se no site.</p>
+          <Button content={
+            <Link to='/login/criar'>Cadastro</Link>
+          } />
+        </div>        
       </section>
     </>
   );

@@ -23,4 +23,8 @@ min-width: 8rem;
     opacity: .5;
     cursor: wait;
   }
+
+  & a {
+    color: #764701 !important;
+  }
 `

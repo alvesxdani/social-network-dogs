@@ -20,11 +20,11 @@ export const StyledHeader = styled.header`
     padding: .5rem 0;
   }
 
-  .login {
+  .login-header {
     color: #333;
   }
 
-  .login::after {
+  .login-header::after {
     content: '';
     display: inline-block;
     width: 14px;

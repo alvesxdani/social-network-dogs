@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyledButton } from './style'
 
-function Button({text, ...props}) {
+function Button({content, ...props}) {
   return (
-    <StyledButton {...props}>{text}</StyledButton>
+    <StyledButton {...props}>{content}</StyledButton>
   )
 }
 

@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Dogs } from '../../Assets/dogs.svg';
 import { StyledHeader } from './style';
+import UserContext from '../../Context/UserContext';
 
 function Header() {
+
+  const { data, userLogout } = useContext(UserContext);
   return (
     <StyledHeader>
       <nav className="container">
         <Link className="logo" to="/" aria-label="Dogs - Home">
           <Dogs />
         </Link>
-        <Link className='login' to="/login">Login / Criar</Link>
+        {data ? (
+          <Link className='login-header' to="/conta">
+          {data.nome}
+          <button onClick={userLogout}>Sair</button>
+        </Link>
+        ) : (
+          <Link className='login-header' to="/login">
+          Login / Criar
+        </Link>
+        )}
       </nav>
     </StyledHeader>
   );

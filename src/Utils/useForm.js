@@ -6,6 +6,10 @@ const types = {
     ,
     message: 'Preencha um e-mail válido',
   },
+  password: {
+    regex: /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+    message: 'A senha precisa ter 8 caracteres, contendo letras e números.',
+  },
 };
 
 const useForm = (type) => {
