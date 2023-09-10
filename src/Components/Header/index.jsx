@@ -6,7 +6,7 @@ import UserContext from '../../Context/UserContext';
 
 function Header() {
 
-  const { data, userLogout } = useContext(UserContext);
+  const { data } = useContext(UserContext);
   return (
     <StyledHeader>
       <nav className="container">
@@ -16,7 +16,6 @@ function Header() {
         {data ? (
           <Link className='login-header' to="/conta">
           {data.nome}
-          <button onClick={userLogout}>Sair</button>
         </Link>
         ) : (
           <Link className='login-header' to="/login">

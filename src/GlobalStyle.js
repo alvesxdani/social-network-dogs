@@ -118,4 +118,47 @@ export const GlobalStyle = createGlobalStyle`
         max-width: 100%;
       }
     }
+
+    // Mobile button
+    .mobile-button {
+    background: #eee;
+    border-radius: .2rem;
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    transition: .1s;
+    cursor: pointer;
+  }
+  
+  .mobile-button::after {
+    content: '';
+    display: block;
+    width: 1.2rem;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+    box-shadow: 0 6px currentColor, 0 -6px currentColor;
+    transition: .2s;
+  }
+
+  .mobile-button:focus,
+  .mobile-button:hover,
+  .mobile-btn-active {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px #fea;
+    border-color: #fb1;
+    color: #fb1;
+  }
+
+  .mobile-btn-active::after {
+    transform: rotate(-90deg);
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 8px currentColor, 0 -8px currentColor;
+  }
 `;
