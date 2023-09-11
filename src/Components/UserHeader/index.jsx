@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Title from '../Title';
 import UserHeaderNav from '../UserHeaderNav';
-import { StyledUserHeader } from './style';
 import { useLocation } from 'react-router-dom';
+import { StyledUserHeader } from './style';
 
 function UserHeader() {
   const [title, setTitle] = useState('');
@@ -18,7 +18,7 @@ function UserHeader() {
         setTitle('Estatísticas');
         break;
       default:
-        setTitle('Minha conta')
+        setTitle('Minha conta');
     }
   }, [location]);
 

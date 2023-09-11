@@ -43,6 +43,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
   }
 
+  .main-container {
+    margin-top: 4rem;
+  }
+
   a {
     text-decoration: none;
     color: #333;
