@@ -11,15 +11,16 @@ grid-template-columns: 36rem 20rem;
 grid-template-rows: auto 1fr auto;
 overflow: hidden;
 opacity: 0;
-transform: scale(.8);
-animation: scaleUp .3s forwards;
+transform: scale(0.8);
+animation: scaleUp 0.3s forwards;
 
-@keyframes scaleUp {
-  to {
-    opacity: initial;
-    transform: initial;
+  @keyframes scaleUp {
+    to {
+      opacity: initial;
+      transform: initial;
+    }
   }
-}
+
 
   .details {
     padding: 2rem 2rem 0 2rem;
