@@ -34,7 +34,7 @@ function LoginForm() {
           <ErrorMsg error={error} />
         </form>
 
-        <Link to='/login/lost' className='lost'>Esqueceu a senha?</Link>
+        <Link to='/login/perdeu' className='lost'>Esqueceu a senha?</Link>
       
         <div className='cadastro'>
           <Title type='h2'>Cadastre-se</Title>

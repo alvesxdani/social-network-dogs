@@ -89,4 +89,13 @@ animation: scaleUp 0.3s forwards;
       grid-row: 1;
     }
   }
+
+  ${(props) => props.className === 'single' ? `
+  grid-template-columns: 1fr;
+  height: auto;
+
+  .img {
+    border-radius: .4rem;
+  }
+  ` : null}
 `

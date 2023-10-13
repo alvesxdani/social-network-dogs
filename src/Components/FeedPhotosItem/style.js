@@ -19,7 +19,7 @@ cursor: pointer;
     }
   }
 
-  img,
+  & > div,
   .visualizacao {
     grid-area: 1/1;
   }

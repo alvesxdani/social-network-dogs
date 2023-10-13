@@ -1,6 +1,7 @@
 import React from 'react';
 import Feed from '../Feed';
 import { StyledHome } from './style';
+import Loading from '../../Components/Loading'
 
 function Home() {
   return (

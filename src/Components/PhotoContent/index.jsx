@@ -5,15 +5,16 @@ import Title from '../Title'
 import PhotoComments from '../PhotoComments'
 import UserContext from '../../Context/UserContext'
 import PhotoDelete from '../PhotoDelete'
+import Image from '../Image'
 
-function PhotoContent({ data }) {
+function PhotoContent({ data, single }) {
   const { photo, comments } = data
   const user = useContext(UserContext)
 
   return (
-    <StyledPhotoContent>
+    <StyledPhotoContent className={single ? 'single' : ''}>
       <div className="img">
-        <img src={photo.src} alt={photo.title} />
+        <Image src={photo.src} alt={photo.title}/>
       </div>
 
       <div className="details">

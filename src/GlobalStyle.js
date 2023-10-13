@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .main-container {
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 
   a {
