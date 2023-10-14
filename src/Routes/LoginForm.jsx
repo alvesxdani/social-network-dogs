@@ -33,7 +33,7 @@ function LoginForm() {
 
           {loading ? <Button content="Carregando" disabled /> : <Button content="Entrar" />}
 
-          <ErrorMsg error={error} />
+          <ErrorMsg error={error && 'Dados incorretos.'} />
         </form>
 
         <Link to='/login/perdeu' className='lost'>Esqueceu a senha?</Link>

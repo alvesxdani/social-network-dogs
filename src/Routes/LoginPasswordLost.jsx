@@ -25,7 +25,7 @@ function LoginPasswordLost() {
     }
   }
   return (
-    <section>
+    <section className='animeLeft'>
       <Head title="Perdeu a senha" />
       <Title type="h1">Perdeu a senha?</Title>
       {data ? <p style={{color: '#4c1'}}>{data}</p> : <form onSubmit={handleSubmit}>

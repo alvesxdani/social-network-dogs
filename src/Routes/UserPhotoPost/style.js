@@ -22,4 +22,8 @@ margin-bottom: 2rem;
     height: 0px;
     padding-bottom: 100%;
   }
+
+  @media (max-width: 40rem) {
+    grid-template-columns: 1fr;
+  }
 `

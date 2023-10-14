@@ -87,6 +87,7 @@ export const GlobalStyle = createGlobalStyle`
   
   .cadastro {
     margin-top: 4rem;
+    margin-bottom: 4rem;
       p {
       margin-top: 2rem;
       margin-bottom: 2rem;
@@ -116,6 +117,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .forms {
+      margin-top: 20vh;
       max-width: 30rem;
       padding: 1rem;
       @media (max-width: 40rem) {
