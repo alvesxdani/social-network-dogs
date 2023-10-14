@@ -165,4 +165,14 @@ export const GlobalStyle = createGlobalStyle`
     height: 4px;
     box-shadow: 0 8px currentColor, 0 -8px currentColor;
   }
+
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh + 10rem);
+  }
+
+  .App-body {
+    flex: 1;
+  }
 `;

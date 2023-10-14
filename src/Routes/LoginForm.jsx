@@ -6,6 +6,7 @@ import useForm from '../Utils/useForm';
 import UserContext from '../Context/UserContext';
 import Title from '../Components/Title';
 import ErrorMsg from '../Components/ErrorMsg';
+import Head from '../Components/Head'
 
 function LoginForm() {
   const username = useForm();
@@ -22,6 +23,7 @@ function LoginForm() {
   }
   return (
     <>
+    <Head title="Login" />
       <section className='animeLeft'>
         <Title type='h1'>Login</Title>
 

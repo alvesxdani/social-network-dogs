@@ -6,12 +6,14 @@ import UserPhotoPost from './UserPhotoPost';
 import UserHeader from '../Components/UserHeader';
 import UserContext from '../Context/UserContext'
 import NotFound from './NotFound'
+import Head from '../Components/Head'
 
 function User() {
 
   const {data} = useContext(UserContext)
   return (
     <section className="container">
+      <Head title="Minha conta" />
       <UserHeader />
       <Routes>
         <Route path="/" element={<Feed user={data.id} />} />

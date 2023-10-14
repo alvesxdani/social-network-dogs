@@ -6,6 +6,8 @@ import useForm from '../Utils/useForm'
 import useFetch from '../Utils/useFetch'
 import { PASSWORD_LOST } from '../Api/api'
 import ErrorMsg from '../Components/ErrorMsg'
+import { json } from 'react-router-dom'
+import Head from '../Components/Head'
 
 function LoginPasswordLost() {
   const login = useForm()
@@ -20,11 +22,11 @@ function LoginPasswordLost() {
         url: window.location.href.replace('perdeu', 'resetar'),
       })
       const {json} = await request(url, options)
-      console.log(json)
     }
   }
   return (
     <section>
+      <Head title="Perdeu a senha" />
       <Title type="h1">Perdeu a senha?</Title>
       {data ? <p style={{color: '#4c1'}}>{data}</p> : <form onSubmit={handleSubmit}>
         <Input label="E-mail / Usuário" type="text" name="login" {...login} />
