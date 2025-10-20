@@ -44,4 +44,4 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) e o [Yarn](https://yarnpkg
 # Se o repositório estiver disponível publicamente, substitua pelo comando de clone
 git clone https://github.com/alvesxdani/social-network-dogs
 cd social-network-dogs
-code . (para abrir no VS Code)
+code . #Para abrir o projeto no VS Code
