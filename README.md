@@ -6,6 +6,8 @@
 
 Este projeto consiste em uma rede social dedicada a cães, onde os usuários podem se cadastrar, realizar o login e fazer postagens que incluem fotos do cão, nome, peso e idade. Além disso, os usuários podem interagir com as postagens realizando comentários. O projeto foi desenvolvido durante o curso de React da Origamid.
 
+[Acesse o deploy](https://social-network-dogs-two.vercel.app/)
+
 ## Tecnologias e Conceitos
 
 O desenvolvimento desta aplicação utilizou um conjunto de tecnologias modernas e conceitos de desenvolvimento React, incluindo:
